@@ -1,6 +1,7 @@
 # distill
 
-![Uploading Gemini_Generated_Image_3n1r983n1r983n1r.png…]()
+<img width="3584" height="1184" alt="Gemini_Generated_Image_3n1r983n1r983n1r (1)" src="https://github.com/user-attachments/assets/aaefdcc5-1a18-4802-ab2f-4e9a8fa30d7a" />
+
 
 A Claude Code plugin that distills your codebase into context files. Invest tokens once, save them on every future session.
 
