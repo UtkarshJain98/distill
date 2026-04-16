@@ -1,0 +1,62 @@
+#!/usr/bin/env bash
+# distill pre-push hook
+# Checks if any generated docs in .claude/docs/ are stale.
+# Does NOT invoke Claude or spend tokens — only checks git commit hashes.
+#
+# Install:
+#   /distill:generate --install-hook
+# Or manually:
+#   cp hooks/pre-push .git/hooks/pre-push && chmod +x .git/hooks/pre-push
+# Bypass:
+#   git push --no-verify
+
+set -euo pipefail
+
+# If .claude/docs/ doesn't exist, distill hasn't been run — nothing to check
+if [ ! -d ".claude/docs" ]; then
+  exit 0
+fi
+
+# Check if we're in a git repo
+if ! git rev-parse --git-dir > /dev/null 2>&1; then
+  exit 0
+fi
+
+stale_docs=()
+
+for doc in .claude/docs/*.md; do
+  [ -f "$doc" ] || continue
+
+  # Extract source_commit from YAML frontmatter
+  commit=$(awk '/^---$/{n++; next} n==1 && /^source_commit:/{sub(/^source_commit:[[:space:]]*/, ""); gsub(/["'"'"']/, ""); print; exit}' "$doc")
+
+  # Skip docs without a usable commit (non-git projects, missing field)
+  if [ -z "$commit" ] || [ "$commit" = "no-git" ]; then
+    continue
+  fi
+
+  # Check if the commit exists (it might have been rebased away)
+  if ! git cat-file -e "$commit^{commit}" 2>/dev/null; then
+    stale_docs+=("$(basename "$doc") (source commit $commit no longer exists)")
+    continue
+  fi
+
+  # Check if anything changed since that commit
+  changes=$(git diff "$commit"..HEAD --name-only 2>/dev/null | head -1)
+  if [ -n "$changes" ]; then
+    stale_docs+=("$(basename "$doc")")
+  fi
+done
+
+if [ ${#stale_docs[@]} -gt 0 ]; then
+  echo ""
+  echo "distill: Some docs in .claude/docs/ may be stale:"
+  for doc in "${stale_docs[@]}"; do
+    echo "  - $doc"
+  done
+  echo ""
+  echo "Run '/distill:generate --update' to refresh them."
+  echo "To push anyway: git push --no-verify"
+  echo ""
+  exit 1
+fi

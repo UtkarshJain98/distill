@@ -1,0 +1,20 @@
+{
+  "name": "distill",
+  "version": "0.2.0",
+  "description": "Distill your codebase into context files for Claude Code. Invest tokens once, save them on every future session. Supports depth profiles, parallel generation, incremental updates, monorepos, and team configuration.",
+  "author": {
+    "name": "Utkarsh Jain"
+  },
+  "repository": "https://github.com/utkarsh-jain/distill",
+  "license": "MIT",
+  "keywords": [
+    "documentation",
+    "context",
+    "onboarding",
+    "tokens",
+    "codebase",
+    "ai-context",
+    "monorepo"
+  ],
+  "skills": "./skills/"
+}
