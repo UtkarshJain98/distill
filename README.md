@@ -1,5 +1,5 @@
 # distill
-[![Anthropic Published](https://img.shields.io/badge/Anthropic-Official%20Published-ff6b35?logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTIgMkw0IDIwaDQuNUwxMiA4bDMuNSAxMkgyMEwxMiAyeiIgZmlsbD0id2hpdGUiLz48L3N2Zz4=)](https://claude.com/plugins)
+[![Anthropic Published](https://img.shields.io/badge/Anthropic-Officially%20Published-ff6b35?logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTIgMkw0IDIwaDQuNUwxMiA4bDMuNSAxMkgyMEwxMiAyeiIgZmlsbD0id2hpdGUiLz48L3N2Zz4=)](https://claude.com/plugins)
 [![Claude Code Plugin](https://img.shields.io/badge/Claude%20Code-Plugin-blue)](https://claude.com/plugins)
 
 <img width="3584" height="1184" alt="Gemini_Generated_Image_3n1r983n1r983n1r (1)" src="https://github.com/user-attachments/assets/aaefdcc5-1a18-4802-ab2f-4e9a8fa30d7a" />
